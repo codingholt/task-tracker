@@ -1,0 +1,8 @@
+footer{
+    text-align: center;
+    background-color: lightgray;
+    width: 100%;
+}
+.links a{
+    padding: 10px;
+}
