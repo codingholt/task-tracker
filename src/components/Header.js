@@ -1,12 +1,12 @@
 import React from 'react'
 import './header.css'
 import Button from './Button';
-
+import AddTask from './AddTask'
 const Header = () => {
 
-  const onClick = () =>{
-    console.log('click')
-  }
+const onClick = () =>{
+  console.log('click')
+}
 
   return (
     <header>

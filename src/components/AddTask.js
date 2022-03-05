@@ -1,12 +1,42 @@
-import React from 'react'
+import './addtask.css'
+import { useState } from 'react'
 
-export const AddTask = () => {
+
+const AddTask = () => {
+
+    const [text, setText] = useState('')
+    const [day, setDay] = useState('')
+    const [reminder, setReminder] = useState(false)
+    
   return (
-    <div className='Modal'>
-        <label>Task</label>
-        <input type="text" name="" id="" placeholder='Add task'/> 
-        <label>Date & time</label>
-        <input type="datetime" name="" id="" />
-    </div>
+      <form className='add-form'>
+          <div className='form-control'>
+              <label>Task</label>
+              <input 
+              type="text" 
+              placeholder='Add Task'
+                value={text} 
+                onChange={(e) => setText(e.target.value)}
+              />
+          </div>
+          <div className='form-control'>
+              <label>Day & Time</label>
+              <input type="date" 
+              placeholder='Date & Time'
+                value={day}
+              onChange={(e) => setDay(e.target.value)} />
+          </div>
+          <div className='form-control'>
+            <label className='reminder'>Set Reminder</label>
+              <input
+               type="checkbox"
+               className='checkbox' 
+               value={reminder}
+              onChange={(e) => setReminder(e.currentTarget.checked)}/>
+          </div>
+          <input type="submit" value="Save Task" className='btn btn-default btn-block'/>
+          </form>
   )
 }
+
+export default AddTask
