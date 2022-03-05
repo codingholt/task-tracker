@@ -32,10 +32,14 @@ function App() {
       
       ])
 
+  const deleteTask = (id) =>{
+    console.log('del' + id)
+  }
+
   return (
     <div className="container">
       <Header/>
-      <Tasks tasks={tasks}/>
+      <Tasks tasks={tasks} onDelete={deleteTask}/>
       <Footer/>
       
     </div>
