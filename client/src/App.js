@@ -1,11 +1,15 @@
+import 'terminal.css'
+import './index.css'
 import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Tasks from './components/Tasks';
 import { useState } from 'react';
-import 'terminal.css'
-import './index.css'
 import AddTask from './components/AddTask';
+const Axios = require('axios')
+
+
+
 
 function App() {
   const [showAddTask, setShowAddTask] = useState(false)
@@ -37,8 +41,14 @@ function App() {
   const addTask = (task) => {
     const id = Math.floor(Math.random() * 1000) + 1
     const newTask =  {id, ...task}
-
+    
     setTasks([...tasks, newTask])
+    console.log(newTask)
+    Axios.post('http://localhost:3001/new', 
+    newTask).then(()=> {
+      console.log('post request succes')
+  })
+    
   }
 
   const deleteTask = (id) =>{

@@ -19,7 +19,7 @@ const db = mysql.createConnection({ //Create connection to the MySQL database
 
 app.post('/new', (req, res) => {
     const id = req.body.id;
-    const task = req.body.task;
+    const task = req.body.text;
     const day = req.body.day;
     const reminder = req.body.reminder;
 
@@ -35,17 +35,17 @@ app.post('/new', (req, res) => {
     );
 })
 
-app.delete('/delete', (req, res) => {
+// app.delete('/delete', (req, res) => {
     
-})
+// })
 
-app.update('/update', (req, res) => {
+// app.update('/update', (req, res) => {
     
-})
+// })
 
-app.get('/get', (req, res) => {
+// app.get('/get', (req, res) => {
     
-})
+// })
 
 
 
