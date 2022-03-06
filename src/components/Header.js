@@ -1,17 +1,14 @@
 import React from 'react'
 import './header.css'
 import Button from './Button';
-import AddTask from './AddTask'
-const Header = () => {
+const Header = ({onAdd}) => {
 
-const onClick = () =>{
-  console.log('click')
-}
+
 
   return (
     <header>
         <h1>TaskTracker</h1>
-        <Button color='black' text='Add' onClick={onClick}/>
+        <Button color='black' text='Add' textColor='white' onClick={onAdd}/>
     </header>
   );
 }
