@@ -18,9 +18,6 @@ let db = new sqlite3.Database('./db/tasks.db', (err) => {
   });
 
 
-const sql = 'CREATE TABLE tasks(id int,task text(255),day text(255),reminder boolean,);'
-
-
 
 app.post('/new', (req, res) => {
     const id = req.body.id;
