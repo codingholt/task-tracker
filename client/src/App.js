@@ -49,11 +49,23 @@ function App() {
       console.log('post request succes')
   })
     
-  }
+}
+
+const getTasks = async () =>{
+  const req = await Axios.get('http://localhost:3001/tasks')
+  const tasks = req.data
+}
+
+getTasks()
 
   const deleteTask = (id) =>{
     setTasks(tasks.filter((task) =>  task.id !== id))
-  }
+
+    Axios.post('http://localhost:3001/delete', 
+    id).then(()=> {
+      console.log('post request succes')
+  })
+}
 
   const toggleReminder = (id) => {
     setTasks(tasks.map((task) =>

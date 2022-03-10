@@ -37,17 +37,32 @@ app.post('/new', (req, res) => {
     );
 })
 
-// app.delete('/delete', (req, res) => {
-    
-// })
+app.delete('/delete', (req, res) => {
+    const id = req.body.id
+
+    db.run('SELECT * FROM tasks WHERE id=?', id, (err, result)=>{
+        if(err){
+            console.log(err)
+        }else{
+            console.log('task deleted')
+        }
+    })
+})
 
 // app.update('/update', (req, res) => {
     
 // })
 
-// app.get('/get', (req, res) => {
+app.get('/tasks', (req, res) => {
+  db.all('SELECT * FROM tasks', (err, rows)=>{
+            if(err){
+                console.log(err)
+            }else{
+                res.send(rows)
+            }
+        })
     
-// })
+})
 
 
 
