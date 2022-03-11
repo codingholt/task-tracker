@@ -40,7 +40,7 @@ app.post('/new', (req, res) => {
 app.delete('/delete', (req, res) => {
     const id = req.body.id
 
-    db.run('SELECT * FROM tasks WHERE id=?', id, (err, result)=>{
+    db.run('DELETE * FROM tasks WHERE id=?', id, (err, result)=>{
         if(err){
             console.log(err)
         }else{
@@ -52,6 +52,11 @@ app.delete('/delete', (req, res) => {
 // app.update('/update', (req, res) => {
     
 // })
+
+app.post('/update', (req, res) =>{
+    const id = req.body.id
+    db.run(``)
+})
 
 app.get('/tasks', (req, res) => {
   db.all('SELECT * FROM tasks', (err, rows)=>{

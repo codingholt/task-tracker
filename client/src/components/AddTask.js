@@ -5,18 +5,18 @@ import { useState } from 'react'
 
 const AddTask = ({ onAdd }) => {
 
-    const [text, setText] = useState('')
+    const [task, setTask] = useState('')
     const [day, setDay] = useState('')
     const [reminder, setReminder] = useState(false)
     
     const onSubmit = (e) =>{
             e.preventDefault()
-                if(!text){
+                if(!task){
                 alert('Please add a task')
                 return
             }
-            onAdd({text, day, reminder})
-            setText('')
+            onAdd({task, day, reminder})
+            setTask('')
             setDay('')
             setReminder(false)
     }
@@ -28,8 +28,8 @@ const AddTask = ({ onAdd }) => {
               <input 
               type="text" 
               placeholder='Add Task'
-                value={text} 
-                onChange={(e) => setText(e.target.value)}
+                value={task} 
+                onChange={(e) => setTask(e.target.value)}
               />
           </div>
           <div className='form-control'>

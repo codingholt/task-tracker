@@ -18,19 +18,19 @@ function App() {
     [
         {
           id: 1,
-          text: 'Doctor',
+          task: 'Doctor',
           day: 'Feb 5',
           reminder: true,
         },
         {
           id: 2,
-          text: 'School',
+          task: 'School',
           day: 'Feb 5',
           reminder: true,
         },
         {
           id: 3,
-          text: 'Dentist',
+          task: 'Dentist',
           day: 'Feb 6',
           reminder: false,
         }
@@ -53,21 +53,25 @@ function App() {
 
 const getTasks = async () =>{
   const req = await Axios.get('http://localhost:3001/tasks')
-  const tasks = req.data
+  const fetchedTasks = req.data
+
+  setTasks([...tasks, fetchedTasks])
 }
 
-getTasks()
 
-  const deleteTask = (id) =>{
-    setTasks(tasks.filter((task) =>  task.id !== id))
+const deleteTask = async (id) =>{
 
-    Axios.post('http://localhost:3001/delete', 
+    await Axios.post('http://localhost:3001/delete', 
     id).then(()=> {
       console.log('post request succes')
+
+    setTasks(tasks.filter((task) =>  task.id !== id))
+
   })
 }
 
   const toggleReminder = (id) => {
+    
     setTasks(tasks.map((task) =>
      task.id === id ?  {...task, reminder:
        !task.reminder} : task))
